@@ -1,0 +1,171 @@
+<%-- 
+    Document   : actualizacion
+    Created on : 11/04/2024, 4:23:19 p. m.
+    Author     : CFiesco
+   
+--%>
+
+
+<%@page import="java.util.Iterator"%>
+<%@page import="modelo.actualizacion"%>
+<%@page import="java.util.List"%>
+<%@page import="modeloDAO.actualizacionDAO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" language="java">
+        <link rel="stylesheet" href="CSS/Styles.css">
+        <title>actualizacion</title>
+    </head>
+    
+    <body>
+       
+        <a href="controlador?accion=listar">Listar personas</a>
+        
+        <%
+            actualizacionDAO dao = new actualizacionDAO();
+            List<actualizacion>list=dao.Listar();
+            Iterator<actualizacion>iter=list.iterator();
+            actualizacion a=null;
+            while (iter.hasNext()) {
+                    a=iter.next();
+                    
+                }
+            
+        %>
+        
+        
+        
+        
+        
+        <button class="btn_Salir" tabindex="Salir" onclick=location.href='perfil.jsp'>
+        <img class="Salir" src="Imagenes/Salir.png"></br>
+        <label>Salir</label>
+    </button>
+    
+    <table  id="tabla2"> 
+        <tr>
+            <td>
+        <img src="Imagenes/Helping_hands2.PNG">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+        <img id="Usuario" src="Imagenes/Usuario.PNG">
+        <button title="Actualizar foto de perfil">
+            
+            <img class="Actualizar_Foto"  src="Imagenes/Actualizar_Foto.png">
+        </button>
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+            <label for="Id">ID</label>
+            </td>
+            <td>
+                <input type="text" id="Id" name="Id"/><%= a.getId() %></br>    
+            </td>
+        </tr>   
+        
+        <tr>
+            <td>
+            <label for="Nombres">Nombre</label>
+            </td>
+            <td>
+            <input type="text" id="Nombre" name="Nombre"/><%= a.getNombre() %></br>    
+            </td>
+        </tr>   
+
+        <tr>
+            <td>
+            <label for="Telefono">Telefono</label>
+            </td>
+            <td>
+            <input type="text" id="Telefono" name="Telefono"/><%= a.getTelefono() %></br> 
+            </td>
+        </tr>
+        
+            <tr>
+            <td>
+            <label for="Direccion">Direccion</label>
+            </td>
+            <td>
+            <input type="text" id="Direccion" name="Direccion"/><%= a.getDireccion() %></br> 
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>
+            <label for="Correo">Correo</label>
+            </td>
+            <td>
+            <input type="text" id="Correo" name="Correo"/><%= a.getCorreo() %></br>  
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+            <label for="Contraseña">Contraseña</label>
+            </td>
+            <td>
+            <input type="text" id="Contraseña" name="Contraseña"/><%= a.getContraseña() %></br>  
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+            <label for="Edad">Edad</label>
+            </td>
+            <td>
+            <input type="text" id="Edad" name="Edad"/><%= a.getEdad() %></br>  
+            </td>
+        </tr>
+
+
+             
+        
+
+        
+
+        <tr>
+            <td>
+                <button class="btn_GuardarDatos" title="GuardarDatos">
+                    <img class="Actualizar" src="Imagenes/Guardar.png"></br>
+                    <label>Guardar oferta</label>
+                </button>
+                
+                <button class="btn_Actualizar" title="Actualizar">
+                    <img class="Actualizar" src="Imagenes/Actualizar.png"></br>
+                    <label>Actualizar</label>
+                </button>
+
+                <button class="btn_Editar" title="Editar">
+                    <img class="Editar" src="Imagenes/Editar.png"></br>
+                    <label>Editar</label>
+                </button>
+
+                <button class="btn_Eliminar" title="Eliminar">
+                    <img class="Eliminar" src="Imagenes/Eliminar.png"></br>
+                    <label>Eliminar</label>
+                </button>
+
+            </td>
+        </tr>
+
+    </table> 
+        
+       
+        
+        
+        
+        
+    </body>
+</html>
